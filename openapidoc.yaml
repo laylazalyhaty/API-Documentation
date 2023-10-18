@@ -1,24 +1,8 @@
 ---
 openapi: 3.0.3
 info:
-  title: BFT Documentation API
-  description: OpenApi documentation for Briix Application.
-  contact:
-    name: Briix IT Support
-    url: http://briix.com
-    email: it-support@briix.com
+  title: BFT Core API
   version: 1.0.0-SNAPSHOT
-  x-logo:
-    url: "https://res.cloudinary.com/ekosutrisno/image/upload/v1696327725/atrium-assets/openapi_j13vkj.png"
-    altText: "Briix logo"
-    padding: "25px"
-  servers:
-  - url: https://app.test.briix.com
-    description: Environment Test
-  - url: https://app.stg.briix.com
-    description: Environment Staging
-  - url: https://app.briix.com
-    description: Environment Production
 paths:
   /api/admin/v1/academy:
     get:
@@ -10432,6 +10416,8 @@ components:
           example: INTRODUCTION
         level:
           description: Level of academy
+          maxLength: 20
+          minLength: 8
           enum:
           - BEGINNER
           - INTERMEDIATE
@@ -10440,6 +10426,7 @@ components:
           allOf:
           - $ref: '#/components/schemas/AcademyKind'
           example: BEGINNER
+          nullable: false
         duration:
           description: Academy video duration
           type: string
